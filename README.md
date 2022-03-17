@@ -1,4 +1,4 @@
 # projects-for-studies
 PJATK
 
-All my smaller and bigger finisher project for my studies
+Some of my more interesting finished projects for my studies
