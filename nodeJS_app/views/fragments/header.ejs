@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../..//css/style.css" />
+    <title>Strona główna</title>
+</head>
+
+<body>
+    <header>
+        <img src="/images//chiken.png" alt="chimkenlogo" width="200" height="200">
+        <h1>Restauracja Kura</h1>
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona glowna</a></li>
+            <li><a href="/reservations" class="<%= navLocation == 'reservation' ? 'active' : ''%>">Zarezerwuj stolik</a>
+            </li>
+            <li><a href="/reservations/contact" class="<%= navLocation == 'contact' ? 'active' : ''%>">Kontakt</a></li>
+
+        </ul>
+    </nav>

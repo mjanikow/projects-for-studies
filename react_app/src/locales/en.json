@@ -1,0 +1,101 @@
+{
+	"lang": "en-GB",
+	"nav": {
+		"main": "Home page",
+		"item": "Items",
+		"player": "Players",
+		"slot": "Inventory slots"
+	},
+	"actions": {
+		"title": "Actions",
+		"details": "Details",
+		"edit": "Edit",
+		"delete": "Delete",
+		"cancel": "Cancel",
+		"return": "Back"
+	},
+	"bool": {
+		"true": "Yes",
+		"false": "No"
+	},
+	"main": {
+		"header": "Home page",
+		"content": "Welcome to the TF2 Market Backend, the administrative website for the backend management of the Team Fortress 2 ingame economy. This site is for administrative purposes only, unauthorized use or abuse of the site will have consequences!"
+	},
+	"items": {
+		"headers": {
+			"list": "Items list",
+			"details": "Item details",
+			"owners": "Owners details",
+			"add": "Add item",
+			"edit": "Edit item"
+		},
+		"empty": "There are no items to display.",
+		"itemNameShort": "Name",
+		"itemName": "Item name:",
+		"qualityShort": "Quality",
+		"quality": "Item quality:",
+		"player": "Player",
+		"owners": "Nobody owns this item.",
+		"add": "Add item",
+		"edit": "Save changes"
+	},
+	"players": {
+		"headers": {
+			"list": "Players list",
+			"details": "Player details",
+			"items": "Inventory details",
+			"add": "Add player",
+			"edit": "Edit player"
+		},
+		"empty": "There are no players to display.",
+		"nicknameShort": "Player's nick",
+		"nickname": "Player's nick:",
+		"isVIPShort": "Is VIP?",
+		"isVIP": "Is VIP?:",
+		"tradeBan": "Trading ban:",
+		"password": "Password:",
+		"item": "Item",
+		"items": "This player doesn't have any items.",
+		"add": "Add player",
+		"edit": "Save changes",
+		"change": "Change password:"
+	},
+	"slots": {
+		"headers": {
+			"list": "Inventories list",
+			"details": "Inventory slot details",
+			"add": "Add inventory slot",
+			"edit": "Edit inventory slot"
+		},
+		"empty": "There are no inventory slots to display.",
+		"playerShort": "Owner",
+		"player": "Owner:",
+		"itemShort": "Item",
+		"item": "Item:",
+		"amountShort": "Amount",
+		"amount": "Amount:",
+		"fromEvent": "Related event:",
+		"selectPlayer": "-- Select owner --",
+		"selectItem": "-- Select item --",
+		"add": "Add inventory slot",
+		"edit": "Save changes"
+	},
+	"errors": {
+		"required": "Field is required",
+		"format": "Field is incorrectly formatted",
+		"maxLength": "Field can't contain more characters than ",
+		"minValue": "Field must contain value greater than ",
+		"onlyFuture": "Field can't contain earlier date",
+		"summary": "Form contains errors",
+		"login": "Incorrect login",
+		"password": "Incorrect password",
+		"unique": "This field value is unavaiable",
+		"notFound": "Data not found for id: "
+	},
+	"auth": {
+		"login": "Login",
+		"logout": "Logout",
+		"logged": "Logged as "
+	}
+}

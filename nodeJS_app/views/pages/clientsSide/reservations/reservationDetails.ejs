@@ -1,0 +1,65 @@
+<%- include('../../../fragments/header.ejs') %>
+
+
+    <main>
+        <h2>Szczegóły rezerwacji:</h2>
+
+        <form class="form">
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required value="<%= reservation.table_number %>" disabled>
+
+
+
+
+            <br>
+            <label for="startTime">Rozpoczęcie rezerwacji:</label>
+            <input type="text" id="startTime" name="startTime" value="<%=reservation.reservation_start%>" disabled><br>
+            <label for="endTime">Zakończenie rezerwacji:</label>
+            <input type="text" id="endTime" name="endTime" value="<%=reservation.reservation_end%>" disabled>
+
+
+
+            <br>
+            <label for="tableId">nr telefonu::
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required value="<%=reservation.phone_num%>" disabled>
+            <br>
+            <label for="tableId">Nazwisko:
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required value="<%=reservation.lastname%>" disabled>
+
+            <br><br>
+            <a href="/reservations" class="form-button-cancel">Wróć</a>
+
+
+
+            <script>
+                function myFunction() {
+                    window.alert("hej")
+                    document.getElementById("demo").style.color = "red";
+                }
+            </script>
+
+
+
+        </form>
+
+
+
+
+
+
+
+    </main>
+
+    <footer>
+        Restauracja Kura, Jana Pawła II 21/37, kuraRestaurant@gmail.com
+    </footer>
+
+    </body>
+
+    </html>

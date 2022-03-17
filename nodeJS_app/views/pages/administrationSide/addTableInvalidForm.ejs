@@ -1,0 +1,70 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2>Dodaj stolik:</h2>
+
+        <form class="form">
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">To pole jest wymagane!</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required>
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required" id="errorTableSeats">To pole jest wymagane!</span>
+            </label>
+            <input type="text" name="tableSeats" id="tableSeats" required>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">To pole jest wymagane!</span>
+            </label>
+            <input list="localizations" name="localization" id="localization" required>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 1">
+                <option value="Sala 2">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+
+
+            <br>
+            <div>
+
+                Dodatkowe:
+
+                <br>
+                Zadaszony
+                <input type="checkbox" id="roof" name="scales">
+                Muzyka w tle
+                <input type="checkbox" id="music" name="scales">
+                Luksusowy
+                <input type="checkbox" id="special" name="scales">
+
+                <br>
+
+                <input type="submit" value="Dodaj" class="form-button-submit" />
+                <a href="reservationList_adm.html" class="form-button-cancel">Anuluj</a>
+
+                <br>
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+
+        </body>
+
+        </html>

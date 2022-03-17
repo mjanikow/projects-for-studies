@@ -1,0 +1,495 @@
+html
+{
+    background-color: #dbdad7;
+    font-family: sans-serif;
+}
+
+body
+{
+    min-width: 360px;
+}
+
+header, nav, main, .login-area, footer
+{
+    margin: 1rem;
+}
+
+header, footer
+{
+    background-color: #db7900;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav
+{
+    background-color: #faeede;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list
+{
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+}
+
+.lang-list
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav-link, .nav-link-current
+{
+    display: inline-block;
+    color: #2c3e50;
+    padding: 1rem 2rem;
+    text-decoration: none;
+}
+
+.lang-link, .lang-link-current
+{
+    display: block;
+    color: #2c3e50;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.nav-link
+{
+    background-color: #cccccc;
+}
+
+.lang-link
+{
+    background-color: #aaaaaa;
+}
+
+.nav-link-current
+{
+    background-color: #aaaaaa;
+}
+
+.lang-link-current
+{
+    background-color: #888888;
+}
+
+.nav-link:hover, .nav-link-current:hover
+{
+    background-color: #d35400;
+    color: #ecf0f1;
+}
+
+.lang-link:hover, .lang-link-current:hover
+{
+    background-color: #0054c2;
+    color: #ecf0f1;
+}
+
+main, .login-area
+{
+    background-color: #eeeeee;
+    padding: 1.5rem;
+}
+
+footer, td.content, .error-summary
+{
+    text-align: center;
+}
+
+h2.content
+{
+    border-bottom: 1px solid #7f8c8d;
+    margin-bottom: 2rem;
+    color: #db7900;
+    text-align: center;
+}
+
+.login-data
+{
+    color: #5555cc;
+}
+
+.login-data-admin
+{
+    color: #cc5555;
+}
+
+.list-add
+{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+table
+{
+    border-collapse: collapse;
+    color: #2c3e50;
+    width: 100%;
+}
+
+table, th, td
+{
+    border: 1px solid #bdc3c7;
+}
+
+th, td
+{
+    background-color: #ecf0f1;
+}
+
+.link-ref
+{
+    color: #db7900;
+    text-decoration: none;
+}
+
+.link-ref:hover
+{
+    color: #feac33;
+}
+
+.actions
+{
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+}
+
+.action
+{
+    display: block;
+    padding: 0;
+}
+
+.action-disabled
+{
+    display: block;
+    padding: 0;
+    border: 2px solid #cccccc;
+}
+
+.action-add, .action-details, .action-edit, .action-delete, .action-return
+{
+    display: block;
+}
+
+.logout-link
+{
+    display: inline-block;
+    background-color: #db7900;
+}
+
+.action-add, .action-details, .action-edit, .action-delete, .action-return, .logout-link
+{
+    border: none;
+    color: #ffffff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.action-add, .action-return, .logout-link
+{
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+}
+
+.logout-link:hover
+{
+    background-color: #ec8a11;
+}
+
+.action-add
+{
+    width: 0.5rem;
+}
+
+.action-return
+{
+    width: 3rem;
+}
+
+.action-add, .input-submit
+{
+    background-color: #27ae60;
+}
+
+.action-add:hover, .input-submit:hover
+{
+    background-color: #38bf71;
+}
+
+.action-details
+{
+    background-color: #816efa;
+}
+
+.action-details:hover
+{
+    background-color: #927ffb;
+}
+
+.action-edit, .input-edit
+{
+    background-color: #999999;
+}
+
+.action-edit:hover, .input-edit:hover
+{
+    background-color: #aaaaaa;
+}
+
+.action-delete, .input-cancel
+{
+    background-color: #ff3c36;
+}
+
+.action-delete:hover, .input-cancel:hover
+{
+    background-color: #ff5e58;
+}
+
+.action-return
+{
+    background-color: #c912a0;
+}
+
+.action-return:hover
+{
+    background-color: #eb34c0;
+}
+
+input, select
+{
+    font-family: inherit;
+    font-size: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+form
+{
+    margin-left: 2rem;
+    display: grid;
+    grid-template-columns: 170px 300px 1fr;
+    row-gap: 1rem;
+}
+
+select, .input-text, .input-number, .input-date
+{
+    border: 1px solid #7f8c8d;
+    color: #2c3e50;
+    border-radius: 5px;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+select:disabled, .input-text:disabled, .input-number:disabled, .input-date:disabled
+{
+    color: #4e5f72;
+    background-color: transparent;
+}
+
+.input-checkbox
+{
+    height: 20px;
+    width: 20px;
+    align-self: center;
+}
+
+.form-label
+{
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.input-cancel, .input-edit, .input-ref
+{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.input-submit, .input-cancel, .input-edit, .input-ref
+{
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-submit, .input-cancel, .input-edit, .error-summary
+{
+    grid-column: 1 / span 2;
+}
+
+.input-ref
+{
+    background-color: #db7900;
+    max-width: 200px;
+    max-height: 15px;
+    margin-left: 0.5rem;
+    margin-top: 0.3rem;
+}
+
+.input-ref:hover
+{
+    background-color: #feac33;
+}
+
+.error, span.content
+{
+    margin-left: 0.5rem;
+    margin-top: 0.8rem;
+}
+
+.error, .error-summary
+{
+    animation: error;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.error, .required, .error-summary
+{
+    color: #c0392b;
+}
+
+span.content
+{
+    color: #4e5f72;
+}
+
+@keyframes error
+{
+    0%
+    {
+        color: #c0392b;
+    }
+
+    50%
+    {
+        color: #ff0000;
+    }
+
+    100%
+    {
+        color: #c0392b;
+    }
+}
+
+@media all and (max-width: 773px)
+{
+    .lang-list
+    {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+@media all and (max-width: 720px)
+{
+    header
+    {
+        flex-direction: column;
+    }
+
+    .header-text
+    {
+        text-align: center;
+    }
+
+    .header-img
+    {
+        align-self: center;
+    }
+
+    .nav-list
+    {
+        flex-wrap: wrap;
+    }
+
+    .nav-item
+    {
+        flex-basis: 50%;
+        text-align: center;
+    }
+
+    .nav-link, .nav-link-current
+    {
+        display: block;
+    }
+
+    .actions
+    {
+        grid-template: 1fr 1fr 1fr / 1fr;
+    }
+
+    form
+    {
+        grid-template-columns: 1fr;
+        row-gap: unset;
+        margin-left: unset;
+    }
+
+    .input-submit, .input-cancel, .input-edit, .error-summary
+    {
+        grid-column: 1;
+        margin-top: 0.8rem;
+    }
+
+    .input-ref
+    {
+        margin-top: 0.5rem;
+        margin-left: 0;
+    }
+
+    .error, span.content
+    {
+        margin: 0;
+    }
+}
+
+@media all and (max-width: 484px)
+{
+    .nav-item
+    {
+        flex-basis: 100%;
+    }
+}
+
+@media all and (max-width: 400px)
+{
+    body, header, nav, .nav-list, .lang-list, main, .login-area, footer
+    {
+        margin: 0;
+    }
+
+    main, .login-area
+    {
+        padding: 0;
+    }
+
+    h2.content
+    {
+        margin-bottom: 0.5rem;
+    }
+}

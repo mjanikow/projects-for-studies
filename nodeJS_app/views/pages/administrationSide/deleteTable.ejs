@@ -1,0 +1,58 @@
+<%- include('../../fragments/header.ejs') %>
+
+
+    <main>
+        <h2>Czy na pewno chcesz usunąć dany stolik:</h2>
+
+        <form class="form">
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required value="5" disabled>
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required" id="errorTableSeats">*</span>
+            </label>
+            <input type="text" name="tableSeats" id="tableSeats" required value="3" disabled>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">*</span>
+            </label>
+            <input list="localizations" name="localization" id="localization" required value="Sala 1" disabled>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 1">
+                <option value="Sala 2">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+
+
+            <br>
+            <div>
+                <button formaction="/reservations/deleteSucces" class="form-button-submit">Usuń!</button>
+                <a href="/reservations" class="form-button-cancel">Anuluj</a>
+            </div>
+            <br>
+
+
+        </form>
+
+
+
+
+
+
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+
+        </body>
+
+        </html>

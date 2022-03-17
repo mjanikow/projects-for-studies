@@ -1,0 +1,110 @@
+<%- include('../../fragments/header.ejs') %>
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationReservationListForm.js"></script>
+
+    <main>
+        <h2>Wyszukaj stolik w danym terminie:</h2>
+
+        <label for="startDate">Podaj datę terminu który cie interesuje:
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="date" id="dataTime" name="startDate">
+
+        <br>
+
+
+        <label for="startTime">Podaj godzinę rozpoczęcia rezerwacji
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="time" id="startTime" name="startTime" required>
+        <br>
+
+        <label for="endTime">Podaj godzinę zakończenia rezerwacji:
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="time" id="endTime" name="endTime" required>
+
+
+
+        <input type="hidden" id="reservationTimeData" name="reservationTimeData">
+
+
+        <script>
+            function searchReservation() {
+
+
+                const fullData = document.getElementById("dataTime").value + "-" +
+                    document.getElementById("startTime").value + "|" +
+                    document.getElementById("dataTime").value + "-" +
+                    document.getElementById("endTime").value
+
+
+                var reservationTimeData = document.getElementById('reservationTimeData');
+                reservationTimeData.value = fullData;
+
+
+
+            }
+
+
+
+        </script>
+
+        <br>
+        <p><a type="submit" href="/reservations/search/" class="button-add"
+                onclick="searchReservation(); location.href=this.href+reservationTimeData.value;return false;">Wyszukaj</a>
+        </p>
+
+        <br>
+
+
+        <h3>Stoliki:</h3>
+
+        <table class="table-list">
+
+            <thead>
+                <tr>
+                    <th>NR stolika</th>
+                    <th>Ilość miejsc siedzących</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for(let table of tables){ %>
+                    <tr>
+                        <td>
+                            <%= table.table_number %>
+                        </td>
+                        <td>
+                            <%= table.seats %>
+                        </td>
+                        <td>
+
+                            <a href="/table/details/<%=table.table_ID%>" class="list-actions-button-details">Szczegóły
+                                stolika</a>
+                            <a href="/table/edit/<%=table.table_ID%>" class="list-actions-button-edit">Edytuj dane
+                                stolika</a>
+                            <a href="/table/delete/<%=table.table_ID%>" class="list-actions-button-deleteFull">Usuń
+                                stolik z bazy</a>
+
+                        </td>
+                    </tr>
+
+                    <% } %>
+            </tbody>
+        </table>
+        <p id="errorsSummary" class="symbol-required"></p>
+
+
+        <p><a href="/table/add" class="button-add">Dodaj stolik</a></p>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+
+        <script src="./../../js/validationReservationListForm.js"></script>
+        </body>
+
+        </html>

@@ -1,0 +1,72 @@
+<%- include('../../fragments/header.ejs') %>
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationTableForm.js"></script>
+
+    <main>
+        <h2>Dodaj stolik:</h2>
+
+        <form class="form" onsubmit="return validateForm();">
+
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errorTableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required>
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required" id="errorTableSeats">*</span>
+            </label>
+            <input type="text" name="tableSeats" id="tableSeats" required>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">*</span>
+            </label>
+            <input list="localizations" name="localization" id="localization" required>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 1">
+                <option value="Sala 2">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+
+
+            <br>
+            <div>
+
+                Dodatkowe:
+
+                <br>
+                Zadaszony
+                <input type="checkbox" id="roof" name="scales">
+                Muzyka w tle
+                <input type="checkbox" id="music" name="scales">
+                Luksusowy
+                <input type="checkbox" id="special" name="scales">
+
+                <br>
+                <p id="errorsSummary" class="symbol-required"></p>
+                <button formaction="/table/addSucces" class="form-button-submit">Dodaj</button>
+                <a href="/reservations" class="form-button-cancel">Anuluj</a>
+
+                <br>
+
+            </div>
+        </form>
+
+
+
+
+
+
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+        </body>
+
+        </html>

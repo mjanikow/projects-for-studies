@@ -1,0 +1,106 @@
+<%- include('../../../fragments/header.ejs') %>
+    <script type="application/javascript" src="../../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../../js/validationReservationAdd.js"></script>
+
+    <main class="addBody">
+        <h2>Zatwierdź rezerwacje:</h2>
+
+
+
+        <form method="post" action='' class="form" novalidate onsubmit="return validateForm();">
+            <input type="hidden" id="table_ID" name="table_ID" value='<%=table.table_ID%>'>
+
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="table_number" id="table_number" value='<%=table.table_number%>' readonly>
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required" id="errorTableSeats">*</span>
+            </label>
+            <input type="text" name="tableSeats" id="tableSeats" required value='<%=table.seats%>' readonly>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">*</span>
+            </label>
+            <input list="localizations" name="localization" id="localization" required value='<%=table.localization%>'
+                readonly>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 1">
+                <option value="Sala 2">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+            <br>
+            <label>Dodatkowe informacje:</label>
+            <p> '<%=table.addons%>'</p>
+
+
+            <br>
+
+
+            <label for="startTime">Rozpoczęcie rezerwacji: </label>
+            <input type="text" id="startTime" name="reservation_start" value='<%=reservationStart%>' readonly><br>
+            <br>
+            <label for="endTime">Zakończenie rezerwacji: </label>
+            <input type="text" id="endTime" name="reservation_end" value='<%=reservationEnd%>' readonly>
+
+
+
+
+
+            <br>
+
+
+            <label for="lastName">Nazwisko:
+                <span class="symbol-required" id="errorLastName">*
+                    <% if(validationErrors.find(e=> e.path.includes('lastname'))) {%>
+                        <%= validationErrors.find( e=> e.path.includes('lastname')).message %>
+                            <% }%>
+                </span>
+            </label>
+            <input type="text" name="lastname" id="lastname" required placeholder="wymagane">
+
+            <br>
+            <label for="phoneNumber">nr telefonu:
+                <span class="symbol-required" id="errorPhoneNumber">*
+                    <% if(validationErrors.find(e=> e.path.includes('phone_num'))) {%>
+                        <%= validationErrors.find( e=> e.path.includes('phone_num')).message %>
+                            <% }%>
+                </span>
+            </label>
+            <input type="text" name="phone_num" id="phoneNumber" placeholder="poprawny numer telefonu" required>
+
+            <br>
+
+
+            <div>
+                <br>
+                <p id="errorsSummary" class="symbol-required"></p>
+                <input class="form-button-submit" type="submit" value="Potwierdź" />
+                <a href="javascript:history.back()" class="form-button-cancel">Anuluj</a>
+            </div>
+            <br>
+
+
+
+
+
+
+
+
+
+    </main>
+
+    <footer>
+        Restauracja Kura, Jana Pawła II 21/37, kuraRestaurant@gmail.com
+    </footer>
+
+    </body>
+
+    </html>

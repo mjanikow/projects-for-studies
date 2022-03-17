@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły stolika</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+
+</head>
+
+<body>
+    <header>
+        <img src="../../images/chiken.png" alt="chimkenlogo" width="200" height="200">
+        <h1>Restauracja Kura</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Strona glowna</a></li>
+            <li><a href="/reservations">Zarezerwuj stolik</a></li>
+            <li><a href="/reservations/contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Szczegóły stolika:</h2>
+
+        <form class="form">
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">*</span>
+            </label>
+            <input type="text" name="tableId" id="tableId" required value=" <%= table.table_number %>" disabled>
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required">*</span>
+            </label>
+            <input type="text" name="tableSeats" id="tableSeats" required value="<%= table.seats %>" disabled>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">*</span>
+            </label>
+            <input list="localizations" name="localization" id="localization" required value="<%= table.localization %>"
+                disabled>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 1">
+                <option value="Sala 2">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+
+
+            <br>
+            <label>Dodatkowe informacje:</label>
+            <p>
+                <%= table.addons %>
+            </p>
+
+            <br>
+            <a href="/reservations" class="form-button-cancel">Wróć</a>
+
+
+
+        </form>
+
+
+
+
+
+
+
+    </main>
+
+    <footer>
+        Restauracja Kura, Jana Pawła II 21/37, kuraRestaurant@gmail.com
+    </footer>
+
+</body>
+
+</html>

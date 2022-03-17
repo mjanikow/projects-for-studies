@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły stolika</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+</head>
+
+<body>
+    <header>
+        <img src="../../images/chiken.png" alt="chimkenlogo" width="200" height="200">
+        <h1>Restauracja Kura</h1>
+
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Strona glowna</a></li>
+            <li><a href="/reservations">Zarezerwuj stolik</a></li>
+            <li><a href="/reservations/contact">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h2>
+            <%= pageTitle %>
+        </h2>
+
+
+        <script>
+            function myFunction() {
+                const roof = document.getElementById('roof');
+                const music = document.getElementById('music');
+                const special = document.getElementById('special');
+
+                let addons = '';
+
+                if (roof.checked)
+                    addons += 'zadaszony '
+                if (music.checked)
+                    addons += 'muzyka '
+                if (special.checked)
+                    addons += 'wysoki standard '
+
+
+                document.getElementById("addonsId").value = addons
+            }
+        </script>
+
+        <form class="form" method="post" action="<%=formAction%>" novalidate>
+
+
+            <label for="tableId">NR stolika:
+                <span class="symbol-required" id="errortableId">*
+                    <% if(validationErrors.find(e=> e.path.includes('table_number'))) {%>
+                        <%= validationErrors.find( e=> e.path.includes('table_number')).message %>
+                            <% }%>
+
+                </span>
+            </label>
+            <input class="<%= validationErrors.find(e => e.path.includes('table_number')) ? 'error-input' : ''%>"
+                type="text" name="table_number" id="tableId" placeholder="2-3 znaki" value="<%=table.table_number%>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+
+
+            <br>
+            <label for="tableSeats">Ilość miejsc:
+                <span class="symbol-required" id="errorTableSeats">*
+                    <% if(validationErrors.find(e=> e.path.includes('seats'))) {%>
+                        <%= validationErrors.find( e=> e.path.includes('seats')).message %>
+                            <% }%>
+                </span>
+            </label>
+            <input class="<%= validationErrors.find(e => e.path.includes('seats')) ? 'error-input' : ''%>" type="text"
+                name="seats" id="tableSeats" placeholder="1 znak liczbowy" value="<%=table.seats%>"
+                <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+
+
+            <br>
+            <label for="localization">Lokalizacja:
+                <span class="symbol-required" id="errorLocalization">*
+                    <% if(validationErrors.find(e=> e.path.includes('localization'))) {%>
+                        <%= validationErrors.find( e=> e.path.includes('localization')).message %>
+                            <% }%>
+                </span>
+            </label>
+            <input class="<%= validationErrors.find(e => e.path.includes('localization')) ? 'error-input' : ''%>"
+                list="localizations" name="localization" id="localization" placeholder="wymagane"
+                value="<%=table.localization%>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>>
+            <datalist id="localizations">
+                <option value="Hol główny">
+                <option value="Sala 2">
+                <option value="Sala 3">
+                <option value="Taras">
+                <option value="Ogródek">
+            </datalist>
+
+
+
+            <br>
+            <label>Dodatkowe informacje:</label>
+            <p>
+                <%if (formAction=='/table/add' || formMode=='edit' ) { %>
+
+
+                    Zadaszony
+                    <input type="checkbox" id="roof" name="rof">
+                    <br>
+                    Muzyka w tle
+                    <input type="checkbox" id="music" name="mus">
+                    <br>
+                    Luksusowy
+                    <input type="checkbox" id="special" name="spec">
+
+                    <input type="hidden" id="addonsId" name="addons">
+
+
+                    <script>
+                        let string = "<%=table.addons%>"
+                        if (string.includes('zadaszony'))
+                            document.getElementById("roof").checked = true;
+                        if (string.includes('muzyka'))
+                            document.getElementById("music").checked = true;
+                        if (string.includes('wysoki standard'))
+                            document.getElementById("special").checked = true;
+                    </script>
+
+                    <% }else{ %>
+                        <%= table.addons %>
+                            <% } %>
+
+            </p>
+
+            <br>
+
+            <%if (formAction=='tables/delete' ) { %>
+
+                <div class="section-buttons">
+                    <a href=" /table/delete/confirm/<%=table.table_ID%>" class="list-actions-button-take">Usuń
+                        stolik</a>
+                </div>
+                <% } %>
+
+                    <%if (formMode=='showDetails' ) { %>
+                        <div class="section-buttons">
+                            <a href=" /table/edit/<%=table.table_ID%>" class="list-actions-button-edit">Edytuj
+                                stolik</a>
+                        </div>
+
+                        <% } %>
+
+                            <div class="form-buttons">
+                                <p id="errorsSummary" class=error-text></p>
+                                <% if(btnLabel=='Dodaj' ) { %>
+
+
+
+
+                                    <input onclick="myFunction()" class="list-actions-button-take" type="submit"
+                                        value="<%=btnLabel%>" />
+
+                                    <a href="/reservations" class=list-actions-button-delete> Anuluj </a>
+
+
+
+                                    <% } else if(btnLabel=='Edytuj' ){ %>
+                                        <input onclick="myFunction()" class="list-actions-button-take" type="submit"
+                                            value="<%=btnLabel%>" />
+                                        <a href="/reservations" class=list-actions-button-delete> Anuluj
+                                        </a>
+                                        <% } else { %>
+
+                                            <a href="/reservations" class=list-actions-button-delete> Wróć
+                                            </a>
+                                            <% } %>
+                            </div>
+
+
+
+
+    </main>
+
+    <footer>
+        Restauracja Kura, Jana Pawła II 21/37, kuraRestaurant@gmail.com
+    </footer>
+
+</body>
+
+</html>

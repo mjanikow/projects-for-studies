@@ -1,0 +1,180 @@
+<%- include('../../fragments/header.ejs') %>
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationReservationListForm.js"></script>
+
+    <main>
+        <h2>Wyszukaj stolik w danym terminie:</h2>
+
+        <label for="startDate">Podaj datę terminu który cie interesuje:
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="date" id="dataTime" name="startDate">
+
+        <br>
+
+
+        <label for="startTime">Podaj godzinę rozpoczęcia rezerwacji
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="time" id="startTime" name="startTime" required>
+        <br>
+
+        <label for="endTime">Podaj godzinę zakończenia rezerwacji:
+            <span class="symbol-required" id="errorDate">*</span>
+        </label>
+        <input type="time" id="endTime" name="endTime" required>
+
+
+        <input type="hidden" id="new_reservationTimeData" name="new_reservationTimeData">
+
+
+
+        <script>
+            function searchReservation() {
+
+
+                const fullData = document.getElementById("dataTime").value + "-" +
+                    document.getElementById("startTime").value + "|" +
+                    document.getElementById("dataTime").value + "-" +
+                    document.getElementById("endTime").value
+
+
+                var new_reservationTimeData = document.getElementById('new_reservationTimeData');
+                new_reservationTimeData.value = fullData;
+
+
+
+            }
+
+
+
+        </script>
+
+        <br>
+        <p><a href="/reservations/search/" class="button-add"
+                onclick="searchReservation(); location.href=this.href+new_reservationTimeData.value;return false;">Wyszukaj</a>
+        </p>
+
+        <br>
+        <input type="hidden" id="reservationTimeData" name="reservationTimeData">
+        <input type="hidden" id="table_ID" name="table_ID">
+
+
+        <br>
+        <p>Wybrany termin:</p>
+
+        <p id="demo"></p>
+
+
+
+        <script>
+
+            const str = window.location.href;
+            const arrCopy = str.split('search/');
+            const dataTime = arrCopy[1];
+            const reservationTimeData = dataTime.split('%7C')[0] + "|" + dataTime.split('%7C')[1];
+
+            document.getElementById('reservationTimeData').value = reservationTimeData;
+            document.getElementById("demo").innerHTML = reservationTimeData;
+
+
+            function setValue() {
+                const str = window.location.href;
+                const arrCopy = str.split('search/');
+                const dataTime = arrCopy[1];
+                const reservationTimeData = dataTime.split('%7C')[0] + "|" + dataTime.split('%7C')[1];
+            }
+
+        </script>
+
+
+        <br>
+
+        <% if(freeTables.length==1) {%>
+            <h3>Wpisano niepoprawny termin rezerwacji.</h3>
+            <% }else{ %>
+                <h3>
+                    Zarezerwuj stolik:
+                </h3>
+                <% } %>
+                    <p id="theData"></p>
+
+                    <table class="table-list">
+
+                        <thead>
+                            <tr>
+                                <th>NR stolika</th>
+                                <th>Ilość miejsc siedzących</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% for(let table of freeTables){ %>
+                                <tr>
+                                    <td>
+                                        <%= table.table_number %>
+                                    </td>
+                                    <td>
+                                        <%= table.seats %>
+                                    </td>
+                                    <td>
+                                        <% if(freeTables.length!=1) {%>
+                                            <a href="/reservations/add/" class="list-actions-button-take"
+                                                onclick="setValue(); location.href=this.href+'<%=table.table_ID%>'+'|'+reservationTimeData;document.getElementById('table_ID').value = '<%=table.table_ID%>'; return false;">Zarezerwuj
+                                                termin</a>
+                                            <% } %>
+
+
+                                    </td>
+                                </tr>
+
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <p id="errorsSummary" class="symbol-required"></p>
+
+
+                    <h3>Rezerwacje dokonane w danym terminie:</h3>
+
+                    <table class="table-list">
+
+                        <thead>
+                            <tr>
+                                <th>NR stolika</th>
+                                <th>Akcje</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% for(let table of reservedTables){ %>
+                                <tr>
+                                    <td>
+                                        <%= table.table_number %>
+                                    </td>
+
+                                    <td>
+
+                                        <a href="/reservations/details/<%=table.reservation_ID%>"
+                                            class="list-actions-button-details">Szczegóły rezerwacji</a>
+                                        <a href="/reservations/delete/<%=table.reservation_ID%>"
+                                            class="list-actions-button-delete">Usuń
+                                            rezerwacje</a>
+
+                                    </td>
+                                </tr>
+
+                                <% } %>
+                        </tbody>
+                    </table>
+                    <p id="errorsSummary" class="symbol-required"></p>
+
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>
+
+
+        <script src="./../../js/validationReservationListForm.js"></script>
+        </body>
+
+        </html>

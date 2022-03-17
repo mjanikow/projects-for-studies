@@ -1,0 +1,101 @@
+{
+	"lang": "pl-PL",
+	"nav": {
+		"main": "Strona główna",
+		"item": "Przedmioty",
+		"player": "Gracze",
+		"slot": "Sloty ekwipunków"
+	},
+	"actions": {
+		"title": "Akcje",
+		"details": "Szczegóły",
+		"edit": "Edytuj",
+		"delete": "Usuń",
+		"cancel": "Anuluj",
+		"return": "Powrót"
+	},
+	"bool": {
+		"true": "Tak",
+		"false": "Nie"
+	},
+	"main": {
+		"header": "Strona główna",
+		"content": "Witaj na stronie TF2 Market Backend, administracyjnej stronie do backend'owego zarządzania ekonomią gry Team Fortress 2. Ta strona jest przeznaczona tylko do administracyjnych czynności, nieuprawnione korzystanie bądź nadużywanie serwisu będą karane!"
+	},
+	"items": {
+		"headers": {
+			"list": "Lista przedmiotów",
+			"details": "Szczegóły przedmiotu",
+			"owners": "Szczegóły właścicieli",
+			"add": "Dodawanie przedmiotu",
+			"edit": "Edytowanie przedmiotu"
+		},
+		"empty": "Brak przedmiotów do wyświetlenia.",
+		"itemNameShort": "Nazwa",
+		"itemName": "Nazwa przedmiotu:",
+		"qualityShort": "Jakość",
+		"quality": "Jakość przedmiotu:",
+		"player": "Gracz",
+		"owners": "Nikt nie posiada tego przedmiotu.",
+		"add": "Dodaj przedmiot",
+		"edit": "Zapisz zmiany"
+	},
+	"players": {
+		"headers": {
+			"list": "Lista graczy",
+			"details": "Szczegóły gracza",
+			"items": "Szczegóły ekwipunku",
+			"add": "Dodawanie gracza",
+			"edit": "Edytowanie gracza"
+		},
+		"empty": "Brak graczy do wyświetlenia.",
+		"nicknameShort": "Nick gracza",
+		"nickname": "Nick gracza:",
+		"isVIPShort": "Czy jest VIP-em?",
+		"isVIP": "Jest VIP-em?:",
+		"tradeBan": "Ban na handel:",
+		"password": "Hasło:",
+		"item": "Przedmiot",
+		"items": "Ten gracz nie posiada żadnych przedmiotów.",
+		"add": "Dodaj gracza",
+		"edit": "Zapisz zmiany",
+		"change": "Zmień hasło:"
+	},
+	"slots": {
+		"headers": {
+			"list": "Lista ekwipunków",
+			"details": "Szczegóły slotu ekwipunku",
+			"add": "Dodawanie slotu ekwipunku",
+			"edit": "Edytowanie slotu ekwipunku"
+		},
+		"empty": "Brak slotów do wyświetlenia.",
+		"playerShort": "Właściciel",
+		"player": "Właściciel:",
+		"itemShort": "Przedmiot",
+		"item": "Przedmiot:",
+		"amountShort": "Ilość",
+		"amount": "Ilość:",
+		"fromEvent": "Powiązane wydarzenie:",
+		"selectPlayer": "-- Wybierz właściciela --",
+		"selectItem": "-- Wybierz przedmiot --",
+		"add": "Dodaj slot",
+		"edit": "Zapisz zmiany"
+	},
+	"errors": {
+		"required": "Pole jest wymagane",
+		"format": "Pole jest nieprawidłowo sformatowane",
+		"maxLength": "Pole nie może przechować więcej znaków niż ",
+		"minValue": "Pole musi zawierać wartość większą od ",
+		"onlyFuture": "Pole nie może zawierać wcześniejszej daty",
+		"summary": "Formularz zawiera błędy",
+		"login": "Nieprawidłowy login",
+		"password": "Nieprawidłowe hasło",
+		"unique": "Ta wartość pola jest niedostępna",
+		"notFound": "Nie znaleziono danych dla id: "
+	},
+	"auth": {
+		"login": "Zaloguj się",
+		"logout": "Wyloguj się",
+		"logged": "Zalogowano jako "
+	}
+}
